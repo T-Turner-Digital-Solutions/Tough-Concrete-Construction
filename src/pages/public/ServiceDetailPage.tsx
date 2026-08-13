@@ -3,6 +3,7 @@ import { ButtonLink } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
 import { EmptyState } from '@/components/ui/EmptyState';
 import { CTASection } from '@/components/marketing/CTASection';
+import { HeroLogoWatermark } from '@/components/marketing/HeroLogoWatermark';
 import { SERVICE_TYPES, type ServiceTypeKey } from '@/config/pricing';
 import { BRAND } from '@/config/brand';
 
@@ -211,6 +212,7 @@ export default function ServiceDetailPage() {
   return (
     <div>
       <section className="relative overflow-hidden bg-concrete-950 bg-concrete-texture">
+        <HeroLogoWatermark />
         <div className="container-page relative py-20 sm:py-28">
           <nav className="mb-5 text-xs font-semibold uppercase tracking-wide text-concrete-400">
             <Link to="/services" className="hover:text-white">

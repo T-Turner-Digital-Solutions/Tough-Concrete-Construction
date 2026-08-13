@@ -1,6 +1,7 @@
 import { useState, type FormEvent, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, ButtonLink } from '@/components/ui/Button';
+import { HeroLogoWatermark } from '@/components/marketing/HeroLogoWatermark';
 import { FormField, Input, Select, Textarea } from '@/components/ui/Field';
 import { SERVICE_TYPES } from '@/config/pricing';
 import { BRAND } from '@/config/brand';
@@ -242,6 +243,7 @@ export default function RequestEstimatePage(): ReactNode {
   return (
     <div>
       <section className="relative overflow-hidden bg-concrete-950 bg-concrete-texture">
+        <HeroLogoWatermark />
         <div className="container-page relative py-16 sm:py-20">
           <span className="inline-block rounded-full border border-safety-500/40 bg-safety-500/10 px-3 py-1 text-xs font-bold uppercase tracking-widest text-safety-400">
             Free, No-Obligation Estimate

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { PhotoTile } from '@/components/ui/PhotoTile';
 import { CTASection } from '@/components/marketing/CTASection';
+import { HeroLogoWatermark } from '@/components/marketing/HeroLogoWatermark';
 import { cn } from '@/lib/cn';
 
 /**
@@ -80,6 +81,7 @@ export default function GalleryPage() {
   return (
     <div>
       <section className="relative overflow-hidden bg-concrete-950 bg-concrete-texture">
+        <HeroLogoWatermark />
         <div className="container-page relative py-20 sm:py-28">
           <span className="inline-block rounded-full border border-safety-500/40 bg-safety-500/10 px-3 py-1 text-xs font-bold uppercase tracking-widest text-safety-400">
             Project Gallery

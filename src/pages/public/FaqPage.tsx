@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { HeroLogoWatermark } from '@/components/marketing/HeroLogoWatermark';
 import { BRAND } from '@/config/brand';
 import { cn } from '@/lib/cn';
 
@@ -70,8 +71,9 @@ export default function FaqPage() {
 
   return (
     <div>
-      <section className="bg-concrete-950 bg-concrete-texture py-16 sm:py-24">
-        <div className="container-page">
+      <section className="relative overflow-hidden bg-concrete-950 bg-concrete-texture py-16 sm:py-24">
+        <HeroLogoWatermark />
+        <div className="container-page relative">
           <span className="inline-block rounded-full border border-safety-500/40 bg-safety-500/10 px-3 py-1 text-xs font-bold uppercase tracking-widest text-safety-400">
             FAQ
           </span>

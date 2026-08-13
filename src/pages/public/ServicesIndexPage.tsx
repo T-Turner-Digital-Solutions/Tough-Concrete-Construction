@@ -1,6 +1,7 @@
 import { ServiceCard } from '@/components/marketing/ServiceCard';
 import { CTASection } from '@/components/marketing/CTASection';
 import { PhotoShowcase, type ShowcasePhoto } from '@/components/marketing/PhotoShowcase';
+import { HeroLogoWatermark } from '@/components/marketing/HeroLogoWatermark';
 import { SERVICE_TYPES, type ServiceTypeKey } from '@/config/pricing';
 import { SERVICE_IMAGES } from '@/config/serviceImages';
 
@@ -59,6 +60,7 @@ export default function ServicesIndexPage() {
   return (
     <div>
       <section className="relative overflow-hidden bg-concrete-950 bg-concrete-texture">
+        <HeroLogoWatermark />
         <div className="container-page relative py-20 sm:py-28">
           <span className="inline-block rounded-full border border-safety-500/40 bg-safety-500/10 px-3 py-1 text-xs font-bold uppercase tracking-widest text-safety-400">
             {SERVICE_TYPES.length} Concrete Services

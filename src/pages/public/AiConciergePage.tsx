@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import { AiConciergeChat } from '@/components/ai/AiConciergeChat';
+import { HeroLogoWatermark } from '@/components/marketing/HeroLogoWatermark';
 import { PRELIMINARY_ESTIMATE_DISCLAIMER } from '@/lib/aiConcierge';
 import { BRAND } from '@/config/brand';
 
@@ -16,6 +17,7 @@ export default function AiConciergePage(): ReactNode {
   return (
     <div>
       <section className="relative overflow-hidden bg-concrete-950 bg-concrete-texture">
+        <HeroLogoWatermark />
         <div className="container-page relative py-16 sm:py-20">
           <span className="inline-block rounded-full border border-safety-500/40 bg-safety-500/10 px-3 py-1 text-xs font-bold uppercase tracking-widest text-safety-400">
             Instant, No-Obligation Guidance
