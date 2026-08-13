@@ -20,6 +20,11 @@ export default function HomePage() {
       <section className="relative overflow-hidden bg-concrete-950 bg-concrete-texture">
         <div className="container-page relative flex flex-col gap-8 py-20 sm:py-28 lg:flex-row lg:items-center lg:py-32">
           <div className="max-w-2xl">
+            <img
+              src="/logo.jpg"
+              alt="Tough Concrete Construction, LLC"
+              className="mb-6 h-24 w-24 rounded-xl object-cover shadow-card sm:h-28 sm:w-28"
+            />
             <span className="inline-block rounded-full border border-safety-500/40 bg-safety-500/10 px-3 py-1 text-xs font-bold uppercase tracking-widest text-safety-400">
               {BRAND.serviceAreas[0]?.name} & Surrounding Areas
             </span>
