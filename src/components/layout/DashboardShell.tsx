@@ -36,7 +36,7 @@ export function DashboardShell({ portalLabel, navGroups, children, headerActions
   const sidebar = (
     <div className="flex h-full flex-col">
       <div className="flex items-center gap-2 px-5 py-5">
-        <span className="flex h-8 w-8 items-center justify-center rounded bg-safety-500 font-display text-sm font-bold text-concrete-950">TC</span>
+        <img src="/logo.jpg" alt="Tough Concrete Construction" className="h-9 w-9 shrink-0 rounded-md object-cover" />
         <div className="leading-tight">
           <p className="font-display text-sm font-bold uppercase tracking-wide text-white">Tough Concrete</p>
           <p className="text-[11px] font-semibold uppercase tracking-widest text-safety-500">{portalLabel}</p>

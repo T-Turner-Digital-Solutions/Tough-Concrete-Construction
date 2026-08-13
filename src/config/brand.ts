@@ -101,8 +101,8 @@ export const BRAND: BrandConfig = {
     google: 'https://g.page/tough-concrete-construction',
   },
   colors: {
-    primary: '#1c1a17',
-    secondary: '#4f778c',
+    primary: '#12171a',
+    secondary: '#0072a9',
     accent: '#f98307',
   },
   yearsInBusiness: 14,

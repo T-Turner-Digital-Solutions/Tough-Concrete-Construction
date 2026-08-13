@@ -20,7 +20,7 @@ export function PublicHeader() {
     <header className="sticky top-0 z-40 border-b border-concrete-800 bg-concrete-950/95 backdrop-blur">
       <div className="container-page flex h-16 items-center justify-between">
         <Link to="/" className="flex items-center gap-2 shrink-0" onClick={() => setOpen(false)}>
-          <span className="flex h-9 w-9 items-center justify-center rounded bg-safety-500 font-display text-lg font-bold text-concrete-950">TC</span>
+          <img src="/logo.jpg" alt="Tough Concrete Construction" className="h-10 w-10 shrink-0 rounded-md object-cover" />
           <span className="font-display text-lg font-bold uppercase tracking-wide text-white leading-none">
             Tough Concrete
             <span className="block text-[10px] font-sans font-medium normal-case tracking-normal text-concrete-400">Construction, LLC</span>
