@@ -53,14 +53,20 @@ export default function HomePage() {
           </div>
 
           <div className="grid flex-1 grid-cols-2 gap-3 lg:pl-6">
-            {['Driveways', 'Patios', 'Foundations', 'Commercial'].map((label, i) => (
+            {[
+              { label: 'Driveways', gradient: 'from-concrete-600 to-concrete-900' },
+              { label: 'Patios', gradient: 'from-steel-600 to-concrete-900' },
+              { label: 'Foundations', image: '/gallery/slab-pour-finishing.jpeg' },
+              { label: 'Commercial', gradient: 'from-steel-400 to-concrete-900' },
+            ].map((tile) => (
               <div
-                key={label}
-                className={`flex aspect-square items-end rounded-xl bg-gradient-to-br p-4 ${
-                  ['from-concrete-600 to-concrete-900', 'from-steel-600 to-concrete-900', 'from-concrete-500 to-steel-900', 'from-steel-400 to-concrete-900'][i]
+                key={tile.label}
+                style={tile.image ? { backgroundImage: `url(${tile.image})`, backgroundSize: 'cover', backgroundPosition: 'center' } : undefined}
+                className={`flex aspect-square items-end rounded-xl p-4 ${
+                  tile.image ? '' : `bg-gradient-to-br ${tile.gradient}`
                 }`}
               >
-                <span className="rounded bg-black/30 px-2 py-1 text-xs font-bold uppercase tracking-wide text-white">{label}</span>
+                <span className="rounded bg-black/30 px-2 py-1 text-xs font-bold uppercase tracking-wide text-white">{tile.label}</span>
               </div>
             ))}
           </div>
