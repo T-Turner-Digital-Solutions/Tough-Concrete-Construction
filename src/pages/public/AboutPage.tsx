@@ -96,20 +96,17 @@ export default function AboutPage() {
           </div>
 
           <div className="grid grid-cols-2 gap-4">
-            {['Site Prep', 'Formwork', 'Reinforcement', 'Finish Work'].map((label, i) => (
-              <div
-                key={label}
-                className={`flex aspect-square items-end rounded-xl bg-gradient-to-br p-4 ${
-                  [
-                    'from-concrete-700 to-concrete-900',
-                    'from-steel-700 to-concrete-900',
-                    'from-concrete-600 to-steel-900',
-                    'from-safety-700 to-concrete-900',
-                  ][i]
-                }`}
-              >
-                <span className="rounded bg-black/30 px-2 py-1 text-xs font-bold uppercase tracking-wide text-white">
-                  {label}
+            {[
+              { label: 'Site Prep', image: '/gallery/site-prep-grading-1.jpeg' },
+              { label: 'Formwork', image: '/gallery/site-prep-driveway-extension.jpeg' },
+              { label: 'Pour Day', image: '/gallery/slab-finishing-trowel.jpeg' },
+              { label: 'Finished Work', image: '/gallery/driveway-finished-curve.jpeg' },
+            ].map((step) => (
+              <div key={step.label} className="relative flex aspect-square items-end overflow-hidden rounded-xl bg-concrete-900">
+                <img src={step.image} alt={step.label} className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                <span className="relative m-4 rounded bg-black/40 px-2 py-1 text-xs font-bold uppercase tracking-wide text-white">
+                  {step.label}
                 </span>
               </div>
             ))}
