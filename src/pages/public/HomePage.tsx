@@ -28,9 +28,9 @@ export default function HomePage() {
               alt="Tough Concrete Construction, LLC"
               className="mb-6 h-44 w-44 object-contain sm:h-60 sm:w-60"
               style={{
-                maskImage: 'radial-gradient(circle farthest-side at center, black 45%, transparent 80%)',
-                WebkitMaskImage: 'radial-gradient(circle farthest-side at center, black 45%, transparent 80%)',
-                filter: 'brightness(1.15) contrast(1.05)',
+                maskImage: 'radial-gradient(circle farthest-side at center, black 75%, transparent 98%)',
+                WebkitMaskImage: 'radial-gradient(circle farthest-side at center, black 75%, transparent 98%)',
+                filter: 'brightness(1.1) contrast(1.03)',
               }}
             />
             <span className="inline-block rounded-full border border-steel-300 bg-steel-50 px-3 py-1 text-xs font-bold uppercase tracking-widest text-steel-700">
@@ -178,7 +178,7 @@ export default function HomePage() {
               ))}
             </div>
           </div>
-          <div className="mx-auto flex aspect-[4/5] w-full max-w-sm items-center justify-center rounded-xl border border-concrete-200 bg-white p-4 shadow-card">
+          <div className="mx-auto flex aspect-[4/5] w-full max-w-sm items-center justify-center overflow-hidden rounded-xl border border-concrete-200 bg-white shadow-card">
             <AlabamaServiceMap />
           </div>
         </div>
