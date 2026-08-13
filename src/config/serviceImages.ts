@@ -3,7 +3,7 @@ import type { ServiceTypeKey } from '@/config/pricing';
 /** Representative real-jobsite photo for each service type, used on ServiceCard tiles. */
 export const SERVICE_IMAGES: Partial<Record<ServiceTypeKey, string>> = {
   driveway: '/gallery/flatwork-driveway-before-after.jpeg',
-  driveway_extension: '/gallery/site-prep-driveway-extension.jpeg',
+  driveway_extension: '/gallery/driveway-extension-before-after.jpeg',
   patio: '/gallery/flatwork-patio-firepit-before-after.jpeg',
   sidewalk: '/gallery/flatwork-sidewalk-before-after.jpeg',
   walkway: '/gallery/flatwork-walkway-before-after.jpeg',
