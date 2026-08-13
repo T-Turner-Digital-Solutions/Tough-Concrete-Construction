@@ -178,7 +178,7 @@ export default function HomePage() {
               ))}
             </div>
           </div>
-          <div className="mx-auto flex aspect-[4/5] w-full max-w-sm items-center justify-center overflow-hidden rounded-xl border border-concrete-200 bg-white shadow-card">
+          <div className="mx-auto w-full max-w-sm">
             <AlabamaServiceMap />
           </div>
         </div>

@@ -25,7 +25,7 @@ const ALABAMA_OUTLINE =
 
 export function AlabamaServiceMap() {
   return (
-    <svg viewBox="25 25 350 450" className="h-full w-full" role="img" aria-label="Map of Tough Concrete Construction's Alabama service area">
+    <svg viewBox="25 25 350 450" className="h-auto w-full" role="img" aria-label="Map of Tough Concrete Construction's Alabama service area">
       <path d={ALABAMA_OUTLINE} className="fill-steel-50 stroke-steel-300" strokeWidth={2.5} strokeLinejoin="round" />
       {CITIES.map((city) => (
         <g key={city.name}>
