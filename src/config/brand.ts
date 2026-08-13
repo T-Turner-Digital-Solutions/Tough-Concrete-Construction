@@ -79,6 +79,13 @@ export const BRAND: BrandConfig = {
     { name: 'Trussville', state: 'AL' },
     { name: 'Mountain Brook', state: 'AL' },
     { name: 'Hueytown', state: 'AL' },
+    { name: 'Huntsville', state: 'AL' },
+    { name: 'Anniston', state: 'AL' },
+    { name: 'Tuscaloosa', state: 'AL' },
+    { name: 'Montgomery', state: 'AL' },
+    { name: 'Selma', state: 'AL' },
+    { name: 'Dothan', state: 'AL' },
+    { name: 'Mobile', state: 'AL' },
   ],
   hours: [
     { day: 'Monday – Friday', hours: '7:00 AM – 5:30 PM' },

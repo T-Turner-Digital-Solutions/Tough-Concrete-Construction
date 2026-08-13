@@ -4,6 +4,8 @@ import { ServiceCard } from '@/components/marketing/ServiceCard';
 import { TestimonialCard } from '@/components/marketing/TestimonialCard';
 import { BeforeAfter } from '@/components/marketing/BeforeAfter';
 import { CTASection } from '@/components/marketing/CTASection';
+import { AlabamaServiceMap } from '@/components/marketing/AlabamaServiceMap';
+import { HeroCarousel } from '@/components/marketing/HeroCarousel';
 import { BRAND } from '@/config/brand';
 import { SERVICE_TYPES } from '@/config/pricing';
 
@@ -57,23 +59,8 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="grid flex-1 grid-cols-2 gap-3 lg:pl-6">
-            {[
-              { label: 'Driveways', image: '/gallery/driveway-estate-1.jpeg' },
-              { label: 'Patios', image: '/gallery/patio-walkway-finished.jpeg' },
-              { label: 'Foundations', image: '/gallery/slab-pour-finishing.jpeg' },
-              { label: 'Commercial', gradient: 'from-steel-400 to-concrete-900' },
-            ].map((tile) => (
-              <div
-                key={tile.label}
-                style={tile.image ? { backgroundImage: `url(${tile.image})`, backgroundSize: 'cover', backgroundPosition: 'center' } : undefined}
-                className={`flex aspect-square items-end rounded-xl p-4 ${
-                  tile.image ? '' : `bg-gradient-to-br ${tile.gradient}`
-                }`}
-              >
-                <span className="rounded bg-black/30 px-2 py-1 text-xs font-bold uppercase tracking-wide text-white">{tile.label}</span>
-              </div>
-            ))}
+          <div className="flex-1 lg:pl-6">
+            <HeroCarousel />
           </div>
         </div>
       </section>
@@ -191,8 +178,8 @@ export default function HomePage() {
               ))}
             </div>
           </div>
-          <div className="flex aspect-square items-center justify-center rounded-xl border border-concrete-200 bg-concrete-100 text-concrete-400">
-            <span className="text-sm font-semibold uppercase tracking-widest">Alabama Service Area Map</span>
+          <div className="mx-auto flex aspect-[4/5] w-full max-w-sm items-center justify-center rounded-xl border border-concrete-200 bg-white p-4 shadow-card">
+            <AlabamaServiceMap />
           </div>
         </div>
       </section>
