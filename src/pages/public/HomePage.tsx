@@ -27,7 +27,7 @@ export default function HomePage() {
               className="mb-6 h-32 w-32 object-contain sm:h-40 sm:w-40"
             />
             <span className="inline-block rounded-full border border-steel-300 bg-steel-50 px-3 py-1 text-xs font-bold uppercase tracking-widest text-steel-700">
-              {BRAND.serviceAreas[0]?.name} & Surrounding Areas
+              {BRAND.serviceAreas[0]?.name}, {BRAND.serviceAreas[0]?.state} & Surrounding Areas
             </span>
             <h1 className="mt-5 font-display text-4xl font-bold uppercase leading-[1.05] tracking-tight text-concrete-950 text-balance sm:text-6xl">
               {BRAND.tagline}
@@ -172,7 +172,7 @@ export default function HomePage() {
           <div>
             <p className="text-sm font-bold uppercase tracking-widest text-steel-600">Service Area</p>
             <h2 className="mt-2 font-display text-3xl font-bold uppercase tracking-wide text-concrete-900 sm:text-4xl">
-              Proudly Serving {BRAND.address.city} &amp; Beyond
+              Proudly Serving {BRAND.address.city}, {BRAND.address.state} &amp; Beyond
             </h2>
             <p className="mt-4 max-w-lg text-concrete-600">
               We pour residential and commercial concrete across the following communities. Not sure if you're in our
@@ -187,7 +187,7 @@ export default function HomePage() {
             </div>
           </div>
           <div className="flex aspect-square items-center justify-center rounded-xl border border-concrete-200 bg-concrete-100 text-concrete-400">
-            <span className="text-sm font-semibold uppercase tracking-widest">Service Area Map</span>
+            <span className="text-sm font-semibold uppercase tracking-widest">Alabama Service Area Map</span>
           </div>
         </div>
       </section>

@@ -13,7 +13,7 @@ export function PublicFooter() {
             <span className="font-display text-base font-bold uppercase tracking-wide text-white">Tough Concrete Construction</span>
           </div>
           <p className="mt-4 text-sm leading-relaxed">
-            {BRAND.tagline} Premium residential and commercial concrete work across {BRAND.address.city} and the
+            {BRAND.tagline} Premium residential and commercial concrete work across {BRAND.address.city}, {BRAND.address.state} and the
             surrounding area.
           </p>
           <p className="mt-4 text-xs text-concrete-500">
