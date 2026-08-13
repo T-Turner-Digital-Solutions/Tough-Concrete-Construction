@@ -26,8 +26,8 @@ export default function HomePage() {
               alt="Tough Concrete Construction, LLC"
               className="mb-6 h-44 w-44 object-contain sm:h-60 sm:w-60"
               style={{
-                maskImage: 'radial-gradient(circle at center, black 55%, transparent 85%)',
-                WebkitMaskImage: 'radial-gradient(circle at center, black 55%, transparent 85%)',
+                maskImage: 'radial-gradient(circle farthest-side at center, black 45%, transparent 80%)',
+                WebkitMaskImage: 'radial-gradient(circle farthest-side at center, black 45%, transparent 80%)',
                 filter: 'brightness(1.15) contrast(1.05)',
               }}
             />
