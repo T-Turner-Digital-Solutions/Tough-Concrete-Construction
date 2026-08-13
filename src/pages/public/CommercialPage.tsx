@@ -1,8 +1,19 @@
 import { ServiceCard } from '@/components/marketing/ServiceCard';
 import { ButtonLink } from '@/components/ui/Button';
 import { CTASection } from '@/components/marketing/CTASection';
+import { PhotoShowcase, type ShowcasePhoto } from '@/components/marketing/PhotoShowcase';
 import { SERVICE_TYPES, type ServiceTypeKey } from '@/config/pricing';
+import { SERVICE_IMAGES } from '@/config/serviceImages';
 import { BRAND } from '@/config/brand';
+
+const COMMERCIAL_PHOTOS: ShowcasePhoto[] = [
+  { image: '/gallery/structural-commercial-entry.jpeg', title: 'Commercial Entry Pad', caption: 'Commercial building entry and parking apron, poured to spec.', serviceKey: 'commercial' },
+  { image: '/gallery/structural-foundation.jpeg', title: 'Foundation Walls', caption: 'Poured foundation walls and footings, waterproofed and backfilled.', serviceKey: 'foundation' },
+  { image: '/gallery/structural-equipment-pad.jpeg', title: 'Equipment Pads', caption: 'Level, reinforced pads for HVAC condenser units.', serviceKey: 'equipment_pad' },
+  { image: '/gallery/structural-dumpster-pad.jpeg', title: 'Dumpster Pad', caption: 'Heavy-duty commercial dumpster pad with bollards.', serviceKey: 'dumpster_pad' },
+  { image: '/gallery/structural-drainage.jpeg', title: 'Drainage Channel', caption: 'Trench drain tied into a downspout and channeled away from the building.', serviceKey: 'drainage' },
+  { image: '/gallery/repair-removal-demolition.jpeg', title: 'Concrete Demolition', caption: 'Breaking out and hauling off failing concrete ahead of a full replacement.', serviceKey: 'removal' },
+];
 
 const COMMERCIAL_KEYS: ServiceTypeKey[] = [
   'commercial',
@@ -71,8 +82,18 @@ export default function CommercialPage() {
         </div>
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((s) => (
-            <ServiceCard key={s.key} service={s} />
+            <ServiceCard key={s.key} service={s} image={SERVICE_IMAGES[s.key]} />
           ))}
+        </div>
+      </section>
+
+      <section className="bg-concrete-50 py-16 sm:py-24">
+        <div className="container-page">
+          <p className="text-sm font-bold uppercase tracking-widest text-steel-600">Recent Work</p>
+          <h2 className="mt-2 font-display text-3xl font-bold uppercase tracking-wide text-concrete-900 sm:text-4xl">
+            Commercial &amp; Site Concrete
+          </h2>
+          <PhotoShowcase photos={COMMERCIAL_PHOTOS} />
         </div>
       </section>
 

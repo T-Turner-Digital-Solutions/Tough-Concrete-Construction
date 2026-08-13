@@ -1,8 +1,21 @@
 import { ServiceCard } from '@/components/marketing/ServiceCard';
 import { TestimonialCard } from '@/components/marketing/TestimonialCard';
 import { CTASection } from '@/components/marketing/CTASection';
+import { PhotoShowcase, type ShowcasePhoto } from '@/components/marketing/PhotoShowcase';
 import { SERVICE_TYPES, type ServiceTypeKey } from '@/config/pricing';
+import { SERVICE_IMAGES } from '@/config/serviceImages';
 import { BRAND } from '@/config/brand';
+
+const RESIDENTIAL_PHOTOS: ShowcasePhoto[] = [
+  { image: '/gallery/flatwork-driveway-before-after.jpeg', title: 'Driveway Replacement', caption: 'Failing, stained driveway replaced with a clean broom-finished pour.', serviceKey: 'driveway' },
+  { image: '/gallery/flatwork-patio-firepit-before-after.jpeg', title: 'Backyard Patio', caption: 'Cracked patio rebuilt around the outdoor living and fire pit area.', serviceKey: 'patio' },
+  { image: '/gallery/decorative-stamped-fireplace-patio.jpeg', title: 'Stamped Patio', caption: 'Stamped patio finished around an outdoor fireplace and kitchen.', serviceKey: 'stamped' },
+  { image: '/gallery/flatwork-walkway-before-after.jpeg', title: 'Front Walkway', caption: 'Uneven, cracked walkway replaced with a smooth, even path.', serviceKey: 'walkway' },
+  { image: '/gallery/flatwork-garage-floor-before-after.jpeg', title: 'Garage Slab', caption: 'Stained, cracked garage floor resurfaced with a new slab.', serviceKey: 'garage_slab' },
+  { image: '/gallery/flatwork-pool-deck-before-after.jpeg', title: 'Pool Deck', caption: 'Worn, cracked pool deck replaced with a bright new surface.', serviceKey: 'pool_deck' },
+  { image: '/gallery/structural-steps.jpeg', title: 'Entry Steps', caption: 'Formed concrete entry steps with a broom-textured tread.', serviceKey: 'steps' },
+  { image: '/gallery/flatwork-backyard-slab-before-after.jpeg', title: 'Backyard Slab', caption: 'Bare gravel pad replaced with a new backyard concrete slab.', serviceKey: 'slab' },
+];
 
 const RESIDENTIAL_KEYS: ServiceTypeKey[] = [
   'driveway',
@@ -68,8 +81,18 @@ export default function ResidentialPage() {
         </div>
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((s) => (
-            <ServiceCard key={s.key} service={s} />
+            <ServiceCard key={s.key} service={s} image={SERVICE_IMAGES[s.key]} />
           ))}
+        </div>
+      </section>
+
+      <section className="bg-concrete-50 py-16 sm:py-24">
+        <div className="container-page">
+          <p className="text-sm font-bold uppercase tracking-widest text-steel-600">Recent Work</p>
+          <h2 className="mt-2 font-display text-3xl font-bold uppercase tracking-wide text-concrete-900 sm:text-4xl">
+            Homes We&apos;ve Poured For
+          </h2>
+          <PhotoShowcase photos={RESIDENTIAL_PHOTOS} />
         </div>
       </section>
 
