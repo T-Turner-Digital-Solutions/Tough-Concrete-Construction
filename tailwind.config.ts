@@ -8,22 +8,22 @@ export default {
         // Brand tokens — sourced from src/config/brand.ts at runtime for
         // copy/content, but Tailwind needs static values at build time.
         // Change these alongside src/config/brand.ts when rebranding.
-        // `concrete` and `steel` are both matched to the company logo
-        // (public/logo.jpg): `concrete` is a navy blue-black scale (same
-        // hue family as the logo's helmet blue) so dark sections read as
-        // blue, not neutral gray/charcoal — pairing with white content
-        // sections for the "blue and white" site-wide scheme.
+        // `concrete` is the neutral scale used for text, borders, and light
+        // section backgrounds (50-600 — kept genuinely grey, no blue cast)
+        // as well as dark hero/header/footer/sidebar backgrounds (700-950 —
+        // shifts to navy, matching the company logo's helmet blue / `steel`
+        // hue) for the site's "grey, black, white, and blue" scheme.
         concrete: {
-          50: '#f5f8fa',
-          100: '#e7eff3',
-          200: '#cddbe4',
-          300: '#a5bbca',
-          400: '#7c98ab',
-          500: '#557791',
-          600: '#3d5971',
-          700: '#2d4458',
-          800: '#203141',
-          900: '#15212d',
+          50: '#f7f7f8',
+          100: '#ecedee',
+          200: '#dadbdd',
+          300: '#bec2c5',
+          400: '#979ea5',
+          500: '#717a84',
+          600: '#535c65',
+          700: '#384551',
+          800: '#24313d',
+          900: '#17212c',
           950: '#0b1219',
         },
         steel: {

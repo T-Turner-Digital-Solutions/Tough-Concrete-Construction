@@ -42,10 +42,10 @@ export function PublicHeader() {
         </nav>
 
         <div className="hidden items-center gap-2 lg:flex">
-          <ButtonLink to="/portal/login" variant="ghost" size="sm" className="text-concrete-300 hover:text-white hover:bg-white/10">
+          <ButtonLink to="/portal/login" variant="ghost" size="sm" className="text-white hover:bg-white/10">
             Customer Login
           </ButtonLink>
-          <ButtonLink to="/contractors/login" variant="ghost" size="sm" className="text-concrete-300 hover:text-white hover:bg-white/10">
+          <ButtonLink to="/contractors/login" variant="ghost" size="sm" className="text-white hover:bg-white/10">
             Contractor Login
           </ButtonLink>
           <ButtonLink to="/request-estimate" variant="primary" size="sm">
