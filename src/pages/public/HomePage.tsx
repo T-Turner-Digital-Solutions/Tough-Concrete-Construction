@@ -24,7 +24,12 @@ export default function HomePage() {
             <img
               src="/logo.jpg"
               alt="Tough Concrete Construction, LLC"
-              className="mb-6 h-32 w-32 object-contain sm:h-40 sm:w-40"
+              className="mb-6 h-44 w-44 object-contain sm:h-60 sm:w-60"
+              style={{
+                maskImage: 'radial-gradient(circle at center, black 55%, transparent 85%)',
+                WebkitMaskImage: 'radial-gradient(circle at center, black 55%, transparent 85%)',
+                filter: 'brightness(1.15) contrast(1.05)',
+              }}
             />
             <span className="inline-block rounded-full border border-steel-300 bg-steel-50 px-3 py-1 text-xs font-bold uppercase tracking-widest text-steel-700">
               {BRAND.serviceAreas[0]?.name}, {BRAND.serviceAreas[0]?.state} & Surrounding Areas
