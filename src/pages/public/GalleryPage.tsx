@@ -53,6 +53,12 @@ const GALLERY_ITEMS: GalleryItem[] = [
   { id: 'gal-r32', tags: ['during', 'decorative'], badge: 'During', caption: 'Flagstone-and-pebble walkway being set in place', image: '/gallery/decorative-flagstone-path.jpeg' },
   { id: 'gal-r33', tags: ['during', 'decorative'], badge: 'During', caption: 'Crew setting pea gravel around flagstone pavers', image: '/gallery/decorative-flagstone-crew.jpeg' },
   { id: 'gal-r34', tags: ['during', 'decorative', 'patios'], badge: 'During', caption: 'Broom-finished concrete border with a natural stone accent', image: '/gallery/patio-broom-finish-closeup.jpeg' },
+  { id: 'gal-r35', tags: ['before', 'driveways'], badge: 'Before', caption: 'Driveway extension formed up and ready to pour', image: '/gallery/site-prep-driveway-extension.jpeg' },
+  { id: 'gal-r36', tags: ['during', 'driveways'], badge: 'During', caption: 'Crew finishing a fresh driveway pour', image: '/gallery/crew-finishing-subdivision.jpeg' },
+  { id: 'gal-r37', tags: ['after', 'driveways'], badge: 'After', caption: 'Freshly finished driveway curing', image: '/gallery/driveway-fresh-subdivision.jpeg' },
+  { id: 'gal-r38', tags: ['after', 'driveways'], badge: 'After', caption: 'Wide finished driveway for a cottage-style home', image: '/gallery/driveway-cottage-wide.jpeg' },
+  { id: 'gal-r39', tags: ['after', 'other'], badge: 'After', caption: 'Freshly finished sidewalk, curing behind cones', image: '/gallery/sidewalk-cones-fresh.jpeg' },
+  { id: 'gal-r40', tags: ['after', 'driveways'], badge: 'After', caption: 'Finished driveway for a two-story home', image: '/gallery/driveway-two-story-home.jpeg' },
   // Sample placeholders (no real photo yet for these categories)
   { id: 'gal-p2', tags: ['before', 'patios'], badge: 'Before', caption: 'Old paver patio removed for a full concrete replacement' },
   { id: 'gal-p3', tags: ['during', 'patios', 'decorative'], badge: 'During', caption: 'Stamped patio — pattern being tooled in' },
