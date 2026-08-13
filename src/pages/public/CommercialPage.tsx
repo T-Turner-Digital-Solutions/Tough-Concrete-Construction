@@ -19,12 +19,9 @@ const COMMERCIAL_KEYS: ServiceTypeKey[] = [
 /**
  * Per-service image override for this page only — some shared SERVICE_IMAGES
  * photos are residential in context and don't fit a commercial audience.
- * `null` suppresses the image entirely (falls back to the icon glyph) when
- * no commercial-appropriate photo is available yet.
  */
 const COMMERCIAL_IMAGE_OVERRIDES: Partial<Record<ServiceTypeKey, string | null>> = {
   parking_pad: '/gallery/commercial-parking-lot-wide.jpeg',
-  drainage: null,
 };
 
 const WORKING_WITH = [
