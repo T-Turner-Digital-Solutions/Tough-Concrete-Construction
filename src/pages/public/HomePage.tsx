@@ -8,17 +8,7 @@ import { AlabamaServiceMap } from '@/components/marketing/AlabamaServiceMap';
 import { HeroCarousel } from '@/components/marketing/HeroCarousel';
 import { BRAND } from '@/config/brand';
 import { SERVICE_TYPES } from '@/config/pricing';
-
-const SERVICE_IMAGES: Partial<Record<(typeof SERVICE_TYPES)[number]['key'], string>> = {
-  driveway: '/gallery/flatwork-driveway-before-after.jpeg',
-  driveway_extension: '/gallery/flatwork-driveway-finished.jpeg',
-  patio: '/gallery/flatwork-patio-firepit-before-after.jpeg',
-  sidewalk: '/gallery/flatwork-sidewalk-before-after.jpeg',
-  walkway: '/gallery/flatwork-walkway-before-after.jpeg',
-  slab: '/gallery/flatwork-backyard-slab-before-after.jpeg',
-  foundation: '/gallery/slab-finishing-trowel.jpeg',
-  parking_pad: '/gallery/parking-pad-brick-estate.jpeg',
-};
+import { SERVICE_IMAGES } from '@/config/serviceImages';
 
 const WHY_US = [
   { title: 'Licensed & Insured', body: `${BRAND.license.label} carrying ${BRAND.insurance.generalLiability.toLowerCase()} and workers' comp on every crew.` },
