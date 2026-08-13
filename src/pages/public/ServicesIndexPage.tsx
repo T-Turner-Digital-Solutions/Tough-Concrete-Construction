@@ -1,5 +1,6 @@
 import { ServiceCard } from '@/components/marketing/ServiceCard';
 import { CTASection } from '@/components/marketing/CTASection';
+import { FlatworkShowcase } from '@/components/marketing/FlatworkShowcase';
 import { SERVICE_TYPES, type ServiceTypeKey } from '@/config/pricing';
 
 const CATEGORIES: { title: string; blurb: string; keys: ServiceTypeKey[] }[] = [
@@ -59,6 +60,7 @@ export default function ServicesIndexPage() {
                 <ServiceCard key={s.key} service={s} />
               ))}
             </div>
+            {cat.title === 'Flatwork' && <FlatworkShowcase />}
           </section>
         );
       })}
