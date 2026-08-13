@@ -4,43 +4,57 @@ import { CTASection } from '@/components/marketing/CTASection';
 import { cn } from '@/lib/cn';
 
 /**
- * Demo/sample gallery data. This is a general project-showcase gallery (not
- * tied to a single job), so entries are authored here rather than pulled
- * from job-specific `demoPhotos` in demoData.ts. No `url` is set, so each
- * tile renders PhotoTile's labeled gradient placeholder.
+ * Gallery data. Real jobsite photos (with `image` set) are actual project
+ * photos from the field; the remaining entries have no `image` and render
+ * PhotoTile's labeled gradient placeholder — clearly sample/demo content
+ * filling in categories we don't have a real photo of yet.
  */
 interface GalleryItem {
   id: string;
   tags: string[];
   badge: string;
   caption: string;
+  image?: string;
 }
 
 const GALLERY_ITEMS: GalleryItem[] = [
-  { id: 'gal-1', tags: ['before', 'driveways'], badge: 'Before', caption: 'Cracked, heaving driveway before removal — Birmingham, AL' },
-  { id: 'gal-2', tags: ['during', 'driveways'], badge: 'During', caption: 'Forms and rebar set for a new driveway pour' },
-  { id: 'gal-3', tags: ['after', 'driveways'], badge: 'After', caption: 'Broom-finished driveway, ready for traffic — Hoover, AL' },
-  { id: 'gal-4', tags: ['after', 'driveways'], badge: 'After', caption: 'Exposed-aggregate driveway extension' },
-  { id: 'gal-5', tags: ['before', 'patios'], badge: 'Before', caption: 'Old paver patio removed for a full concrete replacement' },
-  { id: 'gal-6', tags: ['during', 'patios', 'decorative'], badge: 'During', caption: 'Stamped patio — pattern being tooled in' },
-  { id: 'gal-7', tags: ['after', 'patios', 'decorative'], badge: 'After', caption: 'Finished stamped patio, slate pattern — Vestavia Hills, AL' },
-  { id: 'gal-8', tags: ['after', 'patios'], badge: 'After', caption: 'Broom-finished backyard patio with fire pit footing' },
-  { id: 'gal-9', tags: ['before', 'commercial'], badge: 'Before', caption: 'Deteriorating retail parking lot section prior to replacement' },
-  { id: 'gal-10', tags: ['during', 'commercial'], badge: 'During', caption: 'Commercial parking pad — subgrade compaction' },
-  { id: 'gal-11', tags: ['after', 'commercial'], badge: 'After', caption: 'Completed commercial parking pad — Trussville, AL' },
-  { id: 'gal-12', tags: ['after', 'commercial'], badge: 'After', caption: 'Dumpster enclosure pad for a retail center' },
-  { id: 'gal-13', tags: ['during', 'decorative'], badge: 'During', caption: 'Integral color being mixed for a decorative pour' },
-  { id: 'gal-14', tags: ['after', 'decorative'], badge: 'After', caption: 'Colored, scored walkway leading to a front entry' },
-  { id: 'gal-15', tags: ['after', 'decorative'], badge: 'After', caption: 'Stamped stone-pattern pool deck — Mountain Brook, AL' },
-  { id: 'gal-16', tags: ['before', 'slabs'], badge: 'Before', caption: 'Site graded and ready for a workshop slab' },
-  { id: 'gal-17', tags: ['during', 'slabs'], badge: 'During', caption: 'Vapor barrier and wire mesh set for a garage slab' },
-  { id: 'gal-18', tags: ['after', 'slabs'], badge: 'After', caption: 'Finished garage slab, troweled smooth — Hueytown, AL' },
-  { id: 'gal-19', tags: ['during', 'foundations'], badge: 'During', caption: 'Foundation formwork and rebar cage inspection' },
-  { id: 'gal-20', tags: ['after', 'foundations'], badge: 'After', caption: 'Poured foundation footings, ready for framing' },
-  { id: 'gal-21', tags: ['after', 'other'], badge: 'After', caption: 'Retaining wall built to manage a rear-yard grade change' },
-  { id: 'gal-22', tags: ['after', 'other'], badge: 'After', caption: 'Repaired and resurfaced entry steps' },
-  { id: 'gal-23', tags: ['before', 'other'], badge: 'Before', caption: 'Settled sidewalk section flagged for replacement' },
-  { id: 'gal-24', tags: ['after', 'driveways', 'decorative'], badge: 'After', caption: 'Charcoal-colored driveway with soldier-course border' },
+  // Real jobsite photos
+  { id: 'gal-r1', tags: ['during', 'slabs'], badge: 'During', caption: 'Crew hand-finishing a freshly poured slab', image: '/gallery/slab-pour-finishing.jpeg' },
+  { id: 'gal-r2', tags: ['during', 'slabs'], badge: 'During', caption: 'Power-troweling a large slab to a smooth finish', image: '/gallery/slab-finishing-crew.jpeg' },
+  { id: 'gal-r3', tags: ['during', 'slabs'], badge: 'During', caption: 'Hand-finishing the edge of a new slab pour', image: '/gallery/slab-finishing-trowel.jpeg' },
+  { id: 'gal-r4', tags: ['after', 'driveways'], badge: 'After', caption: 'Finished curved driveway, broom-textured', image: '/gallery/driveway-finished-curve.jpeg' },
+  { id: 'gal-r5', tags: ['after', 'patios'], badge: 'After', caption: 'Finished walkway connecting to a backyard patio', image: '/gallery/patio-walkway-finished.jpeg' },
+  { id: 'gal-r6', tags: ['after', 'driveways'], badge: 'After', caption: 'Wide finished driveway with gravel shoulder', image: '/gallery/driveway-finished-wide.jpeg' },
+  { id: 'gal-r7', tags: ['after', 'driveways'], badge: 'After', caption: 'Finished driveway running alongside the home', image: '/gallery/driveway-finished-house.jpeg' },
+  { id: 'gal-r8', tags: ['after', 'driveways'], badge: 'After', caption: 'Finished driveway and connecting sidewalk', image: '/gallery/driveway-sidewalk-finished.jpeg' },
+  { id: 'gal-r9', tags: ['during', 'driveways'], badge: 'During', caption: 'Crew hand-finishing a driveway apron', image: '/gallery/crew-finishing-apron.jpeg' },
+  { id: 'gal-r10', tags: ['after', 'driveways'], badge: 'After', caption: 'Finished driveway on a wooded lot', image: '/gallery/driveway-finished-wooded.jpeg' },
+  { id: 'gal-r11', tags: ['after', 'driveways'], badge: 'After', caption: 'Freshly finished driveway, cure sealer applied', image: '/gallery/driveway-fresh-pour.jpeg' },
+  { id: 'gal-r12', tags: ['after', 'driveways'], badge: 'After', caption: 'Finished driveway leading up to the home', image: '/gallery/driveway-estate-1.jpeg' },
+  { id: 'gal-r13', tags: ['after', 'driveways'], badge: 'After', caption: 'Finished driveway and parking court', image: '/gallery/parking-pad-brick-estate.jpeg' },
+  { id: 'gal-r14', tags: ['after', 'driveways'], badge: 'After', caption: 'Long driveway finished for a wooded estate lot', image: '/gallery/driveway-estate-2.jpeg' },
+  { id: 'gal-r15', tags: ['after', 'patios'], badge: 'After', caption: 'Finished concrete pad tucked against the home', image: '/gallery/patio-pad-brick-corner.jpeg' },
+  { id: 'gal-r16', tags: ['after', 'other'], badge: 'After', caption: 'Finished walkway with a dark charcoal finish', image: '/gallery/walkway-dark-finish.jpeg' },
+  { id: 'gal-r17', tags: ['after', 'other'], badge: 'After', caption: 'Finished entry pad at the front door', image: '/gallery/entry-porch-pad.jpeg' },
+  { id: 'gal-r18', tags: ['during', 'driveways'], badge: 'During', caption: 'Crew finishing a new driveway for a classic farmhouse', image: '/gallery/driveway-farmhouse.jpeg' },
+  { id: 'gal-r19', tags: ['after', 'driveways'], badge: 'After', caption: 'Finished driveway framed by mature trees', image: '/gallery/driveway-wooded-lot.jpeg' },
+  // Sample placeholders (no real photo yet for these categories)
+  { id: 'gal-p1', tags: ['before', 'driveways'], badge: 'Before', caption: 'Cracked, heaving driveway before removal' },
+  { id: 'gal-p2', tags: ['before', 'patios'], badge: 'Before', caption: 'Old paver patio removed for a full concrete replacement' },
+  { id: 'gal-p3', tags: ['during', 'patios', 'decorative'], badge: 'During', caption: 'Stamped patio — pattern being tooled in' },
+  { id: 'gal-p4', tags: ['after', 'patios', 'decorative'], badge: 'After', caption: 'Finished stamped patio, slate pattern' },
+  { id: 'gal-p5', tags: ['before', 'commercial'], badge: 'Before', caption: 'Deteriorating retail parking lot section prior to replacement' },
+  { id: 'gal-p6', tags: ['during', 'commercial'], badge: 'During', caption: 'Commercial parking pad — subgrade compaction' },
+  { id: 'gal-p7', tags: ['after', 'commercial'], badge: 'After', caption: 'Completed commercial parking pad' },
+  { id: 'gal-p8', tags: ['after', 'commercial'], badge: 'After', caption: 'Dumpster enclosure pad for a retail center' },
+  { id: 'gal-p9', tags: ['during', 'decorative'], badge: 'During', caption: 'Integral color being mixed for a decorative pour' },
+  { id: 'gal-p10', tags: ['after', 'decorative'], badge: 'After', caption: 'Colored, scored walkway leading to a front entry' },
+  { id: 'gal-p11', tags: ['after', 'decorative'], badge: 'After', caption: 'Stamped stone-pattern pool deck' },
+  { id: 'gal-p12', tags: ['before', 'slabs'], badge: 'Before', caption: 'Site graded and ready for a workshop slab' },
+  { id: 'gal-p13', tags: ['during', 'foundations'], badge: 'During', caption: 'Foundation formwork and rebar cage inspection' },
+  { id: 'gal-p14', tags: ['after', 'foundations'], badge: 'After', caption: 'Poured foundation footings, ready for framing' },
+  { id: 'gal-p15', tags: ['after', 'other'], badge: 'After', caption: 'Retaining wall built to manage a rear-yard grade change' },
+  { id: 'gal-p16', tags: ['before', 'other'], badge: 'Before', caption: 'Settled sidewalk section flagged for replacement' },
 ];
 
 const FILTERS: { key: string; label: string }[] = [
@@ -99,7 +113,7 @@ export default function GalleryPage() {
 
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
           {items.map((item) => (
-            <PhotoTile key={item.id} id={item.id} category={item.badge} caption={item.caption} />
+            <PhotoTile key={item.id} id={item.id} url={item.image} category={item.badge} caption={item.caption} />
           ))}
         </div>
 

@@ -54,8 +54,8 @@ export default function HomePage() {
 
           <div className="grid flex-1 grid-cols-2 gap-3 lg:pl-6">
             {[
-              { label: 'Driveways', gradient: 'from-concrete-600 to-concrete-900' },
-              { label: 'Patios', gradient: 'from-steel-600 to-concrete-900' },
+              { label: 'Driveways', image: '/gallery/driveway-estate-1.jpeg' },
+              { label: 'Patios', image: '/gallery/patio-walkway-finished.jpeg' },
               { label: 'Foundations', image: '/gallery/slab-pour-finishing.jpeg' },
               { label: 'Commercial', gradient: 'from-steel-400 to-concrete-900' },
             ].map((tile) => (
