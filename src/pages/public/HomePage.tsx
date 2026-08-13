@@ -120,9 +120,21 @@ export default function HomePage() {
         <p className="text-sm font-bold uppercase tracking-widest text-steel-600">Featured Work</p>
         <h2 className="mt-2 font-display text-3xl font-bold uppercase tracking-wide text-concrete-900 sm:text-4xl">Before &amp; After</h2>
         <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <BeforeAfter label="Driveway Replacement" />
-          <BeforeAfter label="Stamped Patio" />
-          <BeforeAfter label="Commercial Pad" />
+          <BeforeAfter
+            label="Driveway Replacement"
+            beforeUrl="/gallery/featured-driveway-before.jpeg"
+            afterUrl="/gallery/featured-driveway-after.jpeg"
+          />
+          <BeforeAfter
+            label="Stamped Patio"
+            beforeUrl="/gallery/featured-stamped-patio-before.jpeg"
+            afterUrl="/gallery/featured-stamped-patio-after.jpeg"
+          />
+          <BeforeAfter
+            label="Commercial Pad"
+            beforeUrl="/gallery/featured-commercial-pad-before.jpeg"
+            afterUrl="/gallery/featured-commercial-pad-after.jpeg"
+          />
         </div>
         <div className="mt-8 text-center">
           <ButtonLink to="/gallery" variant="outline">
