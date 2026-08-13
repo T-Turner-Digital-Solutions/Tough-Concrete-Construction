@@ -38,6 +38,10 @@ const GALLERY_ITEMS: GalleryItem[] = [
   { id: 'gal-r17', tags: ['after', 'other'], badge: 'After', caption: 'Finished entry pad at the front door', image: '/gallery/entry-porch-pad.jpeg' },
   { id: 'gal-r18', tags: ['during', 'driveways'], badge: 'During', caption: 'Crew finishing a new driveway for a classic farmhouse', image: '/gallery/driveway-farmhouse.jpeg' },
   { id: 'gal-r19', tags: ['after', 'driveways'], badge: 'After', caption: 'Finished driveway framed by mature trees', image: '/gallery/driveway-wooded-lot.jpeg' },
+  { id: 'gal-r20', tags: ['after', 'other'], badge: 'After', caption: 'Finished walkway alongside a modern home', image: '/gallery/walkway-modern-house.jpeg' },
+  { id: 'gal-r21', tags: ['after', 'other'], badge: 'After', caption: 'Finished porch pad for a brick home', image: '/gallery/porch-pad-brick.jpeg' },
+  { id: 'gal-r22', tags: ['after', 'other'], badge: 'After', caption: 'Finished sidewalk leading to the front porch', image: '/gallery/sidewalk-front-porch.jpeg' },
+  { id: 'gal-r23', tags: ['after', 'other'], badge: 'After', caption: 'Finished sidewalk along the side yard', image: '/gallery/sidewalk-side-yard.jpeg' },
   // Sample placeholders (no real photo yet for these categories)
   { id: 'gal-p1', tags: ['before', 'driveways'], badge: 'Before', caption: 'Cracked, heaving driveway before removal' },
   { id: 'gal-p2', tags: ['before', 'patios'], badge: 'Before', caption: 'Old paver patio removed for a full concrete replacement' },
