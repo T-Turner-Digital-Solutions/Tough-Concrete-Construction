@@ -9,7 +9,7 @@ export function PublicFooter() {
       <div className="container-page grid grid-cols-1 gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div>
           <div className="flex items-center gap-2">
-            <img src="/logo.jpg" alt="Tough Concrete Construction" className="h-10 w-10 shrink-0 rounded-md object-cover" />
+            <img src="/logo.jpg" alt="Tough Concrete Construction" className="h-14 w-14 shrink-0 object-contain" />
             <span className="font-display text-base font-bold uppercase tracking-wide text-white">Tough Concrete Construction</span>
           </div>
           <p className="mt-4 text-sm leading-relaxed">

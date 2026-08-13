@@ -24,7 +24,7 @@ export default function HomePage() {
             <img
               src="/logo.jpg"
               alt="Tough Concrete Construction, LLC"
-              className="mb-6 h-24 w-24 rounded-xl object-cover shadow-card sm:h-28 sm:w-28"
+              className="mb-6 h-32 w-32 object-contain sm:h-40 sm:w-40"
             />
             <span className="inline-block rounded-full border border-steel-300 bg-steel-50 px-3 py-1 text-xs font-bold uppercase tracking-widest text-steel-700">
               {BRAND.serviceAreas[0]?.name} & Surrounding Areas
@@ -81,20 +81,22 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="container-page py-16 sm:py-24">
-        <div className="mb-10 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
-          <div>
-            <p className="text-sm font-bold uppercase tracking-widest text-steel-600">What We Do</p>
-            <h2 className="mt-2 font-display text-3xl font-bold uppercase tracking-wide text-concrete-900 sm:text-4xl">Concrete Services</h2>
+      <section className="bg-concrete-50 py-16 sm:py-24">
+        <div className="container-page">
+          <div className="mb-10 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+            <div>
+              <p className="text-sm font-bold uppercase tracking-widest text-steel-600">What We Do</p>
+              <h2 className="mt-2 font-display text-3xl font-bold uppercase tracking-wide text-concrete-900 sm:text-4xl">Concrete Services</h2>
+            </div>
+            <Link to="/services" className="text-sm font-semibold text-steel-700 hover:text-steel-800">
+              View all {SERVICE_TYPES.length} services →
+            </Link>
           </div>
-          <Link to="/services" className="text-sm font-semibold text-steel-700 hover:text-steel-800">
-            View all {SERVICE_TYPES.length} services →
-          </Link>
-        </div>
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {SERVICE_TYPES.slice(0, 8).map((s) => (
-            <ServiceCard key={s.key} service={s} />
-          ))}
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {SERVICE_TYPES.slice(0, 8).map((s) => (
+              <ServiceCard key={s.key} service={s} />
+            ))}
+          </div>
         </div>
       </section>
 
