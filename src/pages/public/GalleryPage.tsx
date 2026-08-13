@@ -42,6 +42,11 @@ const GALLERY_ITEMS: GalleryItem[] = [
   { id: 'gal-r21', tags: ['after', 'other'], badge: 'After', caption: 'Finished porch pad for a brick home', image: '/gallery/porch-pad-brick.jpeg' },
   { id: 'gal-r22', tags: ['after', 'other'], badge: 'After', caption: 'Finished sidewalk leading to the front porch', image: '/gallery/sidewalk-front-porch.jpeg' },
   { id: 'gal-r23', tags: ['after', 'other'], badge: 'After', caption: 'Finished sidewalk along the side yard', image: '/gallery/sidewalk-side-yard.jpeg' },
+  { id: 'gal-r24', tags: ['after', 'other'], badge: 'After', caption: 'Finished sidewalk along the side yard', image: '/gallery/sidewalk-side-yard-2.jpeg' },
+  { id: 'gal-r25', tags: ['after', 'driveways'], badge: 'After', caption: 'Finished curved driveway on a wooded lot', image: '/gallery/driveway-curved-wooded.jpeg' },
+  { id: 'gal-r26', tags: ['after', 'driveways'], badge: 'After', caption: 'Long finished driveway through the trees', image: '/gallery/driveway-long-wooded.jpeg' },
+  { id: 'gal-r27', tags: ['after', 'driveways'], badge: 'After', caption: 'Wide finished driveway on a wooded lot', image: '/gallery/driveway-wide-wooded.jpeg' },
+  { id: 'gal-r28', tags: ['after', 'driveways'], badge: 'After', caption: 'Finished parking pad for a new home', image: '/gallery/parking-pad-blue-home.jpeg' },
   // Sample placeholders (no real photo yet for these categories)
   { id: 'gal-p1', tags: ['before', 'driveways'], badge: 'Before', caption: 'Cracked, heaving driveway before removal' },
   { id: 'gal-p2', tags: ['before', 'patios'], badge: 'Before', caption: 'Old paver patio removed for a full concrete replacement' },
