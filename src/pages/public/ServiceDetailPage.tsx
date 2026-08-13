@@ -171,6 +171,11 @@ const WHY_US = [
   'A workmanship warranty backing every completed job',
 ];
 
+const PROCESS_IMAGES: Partial<Record<ServiceTypeKey, string>> = {
+  driveway: '/gallery/process-new-driveway-steps.jpeg',
+  repair: '/gallery/process-crack-repair-steps.jpeg',
+};
+
 const PROCESS = [
   { title: 'Site Visit & Measurements', body: 'We walk the site, take measurements, and note anything that could affect access, drainage, or pricing.' },
   { title: 'Written Estimate', body: 'You get a detailed, line-item estimate — materials, labor, and scope spelled out clearly.' },
@@ -286,6 +291,14 @@ export default function ServiceDetailPage() {
           <h2 className="mt-2 text-center font-display text-3xl font-bold uppercase tracking-wide text-white sm:text-4xl">
             Our Process
           </h2>
+          {PROCESS_IMAGES[service.key] && (
+            <img
+              src={PROCESS_IMAGES[service.key]}
+              alt={`${service.label} process steps`}
+              className="mx-auto mt-10 w-full max-w-4xl rounded-xl"
+              loading="lazy"
+            />
+          )}
           <ol className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {PROCESS.map((step, i) => (
               <li key={step.title} className="rounded-xl border border-white/10 bg-white/5 p-6">

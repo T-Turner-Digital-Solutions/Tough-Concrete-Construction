@@ -1,22 +1,28 @@
 import { Link } from 'react-router-dom';
 import type { ServiceTypeInfo } from '@/config/pricing';
 
-export function ServiceCard({ service }: { service: ServiceTypeInfo }) {
+export function ServiceCard({ service, image }: { service: ServiceTypeInfo; image?: string }) {
   return (
     <Link
       to={`/services/${service.key}`}
-      className="group flex flex-col justify-between rounded-xl border border-concrete-200 bg-white p-6 shadow-card transition-all hover:-translate-y-0.5 hover:shadow-card-hover"
+      className="group flex flex-col justify-between overflow-hidden rounded-xl border border-concrete-200 bg-white shadow-card transition-all hover:-translate-y-0.5 hover:shadow-card-hover"
     >
-      <div>
-        <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-lg bg-concrete-900 text-safety-500">
+      {image ? (
+        <img src={image} alt={service.label} className="aspect-[3/2] w-full object-cover" loading="lazy" />
+      ) : (
+        <div className="mx-6 mt-6 flex h-11 w-11 items-center justify-center rounded-lg bg-concrete-900 text-safety-500">
           <ServiceGlyph name={service.icon} />
         </div>
-        <h3 className="font-display text-lg font-bold uppercase tracking-wide text-concrete-900">{service.label}</h3>
-        <p className="mt-2 text-sm leading-relaxed text-concrete-500">{service.shortDescription}</p>
+      )}
+      <div className="flex flex-1 flex-col justify-between p-6">
+        <div>
+          <h3 className="font-display text-lg font-bold uppercase tracking-wide text-concrete-900">{service.label}</h3>
+          <p className="mt-2 text-sm leading-relaxed text-concrete-500">{service.shortDescription}</p>
+        </div>
+        <span className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-steel-700 group-hover:text-safety-600">
+          Learn more <span aria-hidden>→</span>
+        </span>
       </div>
-      <span className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-steel-700 group-hover:text-safety-600">
-        Learn more <span aria-hidden>→</span>
-      </span>
     </Link>
   );
 }
