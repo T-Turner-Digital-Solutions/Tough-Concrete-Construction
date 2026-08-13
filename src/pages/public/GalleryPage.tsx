@@ -4,10 +4,8 @@ import { CTASection } from '@/components/marketing/CTASection';
 import { cn } from '@/lib/cn';
 
 /**
- * Gallery data. Real jobsite photos (with `image` set) are actual project
- * photos from the field; the remaining entries have no `image` and render
- * PhotoTile's labeled gradient placeholder — clearly sample/demo content
- * filling in categories we don't have a real photo of yet.
+ * Gallery data — real jobsite photos only. New uploads get appended here
+ * with an `image` path into /public/gallery/.
  */
 interface GalleryItem {
   id: string;
@@ -59,22 +57,6 @@ const GALLERY_ITEMS: GalleryItem[] = [
   { id: 'gal-r38', tags: ['after', 'driveways'], badge: 'After', caption: 'Wide finished driveway for a cottage-style home', image: '/gallery/driveway-cottage-wide.jpeg' },
   { id: 'gal-r39', tags: ['after', 'other'], badge: 'After', caption: 'Freshly finished sidewalk, curing behind cones', image: '/gallery/sidewalk-cones-fresh.jpeg' },
   { id: 'gal-r40', tags: ['after', 'driveways'], badge: 'After', caption: 'Finished driveway for a two-story home', image: '/gallery/driveway-two-story-home.jpeg' },
-  // Sample placeholders (no real photo yet for these categories)
-  { id: 'gal-p2', tags: ['before', 'patios'], badge: 'Before', caption: 'Old paver patio removed for a full concrete replacement' },
-  { id: 'gal-p3', tags: ['during', 'patios', 'decorative'], badge: 'During', caption: 'Stamped patio — pattern being tooled in' },
-  { id: 'gal-p4', tags: ['after', 'patios', 'decorative'], badge: 'After', caption: 'Finished stamped patio, slate pattern' },
-  { id: 'gal-p5', tags: ['before', 'commercial'], badge: 'Before', caption: 'Deteriorating retail parking lot section prior to replacement' },
-  { id: 'gal-p6', tags: ['during', 'commercial'], badge: 'During', caption: 'Commercial parking pad — subgrade compaction' },
-  { id: 'gal-p7', tags: ['after', 'commercial'], badge: 'After', caption: 'Completed commercial parking pad' },
-  { id: 'gal-p8', tags: ['after', 'commercial'], badge: 'After', caption: 'Dumpster enclosure pad for a retail center' },
-  { id: 'gal-p9', tags: ['during', 'decorative'], badge: 'During', caption: 'Integral color being mixed for a decorative pour' },
-  { id: 'gal-p10', tags: ['after', 'decorative'], badge: 'After', caption: 'Colored, scored walkway leading to a front entry' },
-  { id: 'gal-p11', tags: ['after', 'decorative'], badge: 'After', caption: 'Stamped stone-pattern pool deck' },
-  { id: 'gal-p12', tags: ['before', 'slabs'], badge: 'Before', caption: 'Site graded and ready for a workshop slab' },
-  { id: 'gal-p13', tags: ['during', 'foundations'], badge: 'During', caption: 'Foundation formwork and rebar cage inspection' },
-  { id: 'gal-p14', tags: ['after', 'foundations'], badge: 'After', caption: 'Poured foundation footings, ready for framing' },
-  { id: 'gal-p15', tags: ['after', 'other'], badge: 'After', caption: 'Retaining wall built to manage a rear-yard grade change' },
-  { id: 'gal-p16', tags: ['before', 'other'], badge: 'Before', caption: 'Settled sidewalk section flagged for replacement' },
 ];
 
 const FILTERS: { key: string; label: string }[] = [
