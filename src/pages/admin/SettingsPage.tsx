@@ -175,7 +175,7 @@ function BusinessTab() {
             ))}
           </div>
           <div className="flex gap-2">
-            <Input placeholder="e.g. Celina, TX" value={newArea} onChange={(e) => setNewArea(e.target.value)} className="max-w-xs" />
+            <Input placeholder="e.g. Pelham, AL" value={newArea} onChange={(e) => setNewArea(e.target.value)} className="max-w-xs" />
             <Button
               size="sm"
               variant="outline"
@@ -605,7 +605,7 @@ interface TeamMember {
 }
 
 const DEMO_TEAM: TeamMember[] = [
-  { id: 'profile-owner-1', name: 'Tomás Turner', email: 'owner@toughconcreteconstruction.com', role: 'owner_admin' },
+  { id: 'profile-owner-1', name: 'Jorge Garcia', email: 'owner@toughconcreteconstruction.com', role: 'owner_admin' },
   { id: 'profile-office-1', name: 'Renee Ashford', email: 'renee@toughconcreteconstruction.com', role: 'office_staff' },
   { id: 'profile-crew-1', name: 'Danny Ortega', email: 'danny@toughconcreteconstruction.com', role: 'field_crew' },
 ];

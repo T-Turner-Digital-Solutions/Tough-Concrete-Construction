@@ -39,17 +39,21 @@ export default {
           900: '#123e59',
           950: '#0b2739',
         },
+        // `safety` is kept as a separate token (used for CTA "pop" and
+        // warning-tone badges) but is now a bright cyan-blue accent, not
+        // orange — the site's full palette is strictly grey/black/white/
+        // blue per brand direction, with zero orange anywhere.
         safety: {
-          50: '#fff8ec',
-          100: '#ffedc7',
-          200: '#ffd889',
-          300: '#ffbe4b',
-          400: '#ffa41f',
-          500: '#f98307',
-          600: '#dd6002',
-          700: '#b74106',
-          800: '#94330c',
-          900: '#7a2b0d',
+          50: '#ecf8fe',
+          100: '#d4f0fc',
+          200: '#aae2f8',
+          300: '#74d0f1',
+          400: '#3ebfea',
+          500: '#0cb5e9',
+          600: '#0596c7',
+          700: '#086f9b',
+          800: '#0d5077',
+          900: '#0f3857',
         },
       },
       fontFamily: {

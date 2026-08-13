@@ -17,7 +17,8 @@ const WHY_US = [
 export default function HomePage() {
   return (
     <div>
-      <section className="relative overflow-hidden bg-concrete-950 bg-concrete-texture">
+      <section className="relative overflow-hidden bg-white">
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-steel-50 via-white to-steel-100" />
         <div className="container-page relative flex flex-col gap-8 py-20 sm:py-28 lg:flex-row lg:items-center lg:py-32">
           <div className="max-w-2xl">
             <img
@@ -25,26 +26,26 @@ export default function HomePage() {
               alt="Tough Concrete Construction, LLC"
               className="mb-6 h-24 w-24 rounded-xl object-cover shadow-card sm:h-28 sm:w-28"
             />
-            <span className="inline-block rounded-full border border-safety-500/40 bg-safety-500/10 px-3 py-1 text-xs font-bold uppercase tracking-widest text-safety-400">
+            <span className="inline-block rounded-full border border-steel-300 bg-steel-50 px-3 py-1 text-xs font-bold uppercase tracking-widest text-steel-700">
               {BRAND.serviceAreas[0]?.name} & Surrounding Areas
             </span>
-            <h1 className="mt-5 font-display text-4xl font-bold uppercase leading-[1.05] tracking-tight text-white text-balance sm:text-6xl">
+            <h1 className="mt-5 font-display text-4xl font-bold uppercase leading-[1.05] tracking-tight text-concrete-950 text-balance sm:text-6xl">
               {BRAND.tagline}
             </h1>
-            <p className="mt-6 max-w-lg text-lg leading-relaxed text-concrete-300">
+            <p className="mt-6 max-w-lg text-lg leading-relaxed text-concrete-600">
               Tough Concrete Construction, LLC delivers premium driveways, patios, foundations, and commercial
               flatwork — backed by transparent pricing and real-time project tracking from estimate to final
               inspection.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <ButtonLink to="/request-estimate" size="lg">
+              <ButtonLink to="/request-estimate" variant="steel" size="lg">
                 Request a Free Estimate
               </ButtonLink>
-              <ButtonLink to="/schedule-site-visit" variant="outline-light" size="lg">
+              <ButtonLink to="/schedule-site-visit" variant="outline" size="lg">
                 Schedule a Site Visit
               </ButtonLink>
             </div>
-            <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3 text-sm text-concrete-400">
+            <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3 text-sm text-concrete-500">
               <span>★★★★★ 4.9 average rating</span>
               <span>{BRAND.yearsInBusiness}+ years in business</span>
               <span>Free written estimates</span>
@@ -56,7 +57,7 @@ export default function HomePage() {
               <div
                 key={label}
                 className={`flex aspect-square items-end rounded-xl bg-gradient-to-br p-4 ${
-                  ['from-concrete-700 to-concrete-900', 'from-steel-700 to-concrete-900', 'from-concrete-600 to-steel-900', 'from-safety-700 to-concrete-900'][i]
+                  ['from-concrete-600 to-concrete-900', 'from-steel-600 to-concrete-900', 'from-concrete-500 to-steel-900', 'from-steel-400 to-concrete-900'][i]
                 }`}
               >
                 <span className="rounded bg-black/30 px-2 py-1 text-xs font-bold uppercase tracking-wide text-white">{label}</span>
@@ -97,17 +98,17 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-concrete-900 py-16 sm:py-24">
+      <section className="bg-steel-50 py-16 sm:py-24">
         <div className="container-page">
-          <p className="text-center text-sm font-bold uppercase tracking-widest text-safety-500">Why Choose Tough Concrete</p>
-          <h2 className="mt-2 text-center font-display text-3xl font-bold uppercase tracking-wide text-white sm:text-4xl">
+          <p className="text-center text-sm font-bold uppercase tracking-widest text-steel-600">Why Choose Tough Concrete</p>
+          <h2 className="mt-2 text-center font-display text-3xl font-bold uppercase tracking-wide text-concrete-950 sm:text-4xl">
             Built On A Reputation That Lasts
           </h2>
           <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {WHY_US.map((item) => (
-              <div key={item.title} className="rounded-xl border border-white/10 bg-white/5 p-6">
-                <h3 className="font-display text-lg font-bold uppercase tracking-wide text-white">{item.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-concrete-400">{item.body}</p>
+              <div key={item.title} className="rounded-xl border border-concrete-200 bg-white p-6 shadow-card">
+                <h3 className="font-display text-lg font-bold uppercase tracking-wide text-concrete-950">{item.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-concrete-600">{item.body}</p>
               </div>
             ))}
           </div>
@@ -139,19 +140,19 @@ export default function HomePage() {
             <TestimonialCard
               quote="They kept us updated every single day through their portal — we always knew exactly when the crew was coming and what was happening."
               name="Sarah R."
-              location="Fairview, TX"
+              location="Birmingham, AL"
               project="Driveway Replacement"
             />
             <TestimonialCard
               quote="Professional from the estimate all the way to the final walkthrough. The stamped patio turned out better than we imagined."
               name="Denise C."
-              location="McKinney, TX"
+              location="Hoover, AL"
               project="Stamped Patio"
             />
             <TestimonialCard
               quote="As a property manager I need contractors who show up and communicate. Tough Concrete does both, every time."
               name="Property Manager"
-              location="Allen, TX"
+              location="Vestavia Hills, AL"
               project="Commercial Pad Replacement"
             />
           </div>
@@ -183,7 +184,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <CTASection />
+      <CTASection light />
     </div>
   );
 }

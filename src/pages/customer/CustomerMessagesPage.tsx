@@ -11,7 +11,7 @@ import type { Message, UserRole } from '@/types/domain';
 
 const SENDER_LABELS: Record<UserRole, string> = {
   customer: 'You',
-  owner_admin: 'Tomás (Owner)',
+  owner_admin: 'Jorge (Owner)',
   office_staff: 'Office',
   field_crew: 'Field Crew',
   contractor: 'Contractor',

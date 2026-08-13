@@ -100,13 +100,13 @@ export default function ResidentialPage() {
             <TestimonialCard
               quote="Our old patio was falling apart and covered in cracks. The new one is beautiful and they even helped us pick the stamped pattern."
               name="Marcus T."
-              location="Frisco, TX"
+              location="Homewood, AL"
               project="Stamped Patio"
             />
             <TestimonialCard
               quote="From the first call to the final walkthrough, everything was on time and exactly what they quoted. No surprises on the invoice."
               name="Lauren H."
-              location="Plano, TX"
+              location="Trussville, AL"
               project="Driveway & Walkway"
             />
           </div>

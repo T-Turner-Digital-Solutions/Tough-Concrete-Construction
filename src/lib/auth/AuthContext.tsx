@@ -19,11 +19,11 @@ interface AuthContextValue {
 const AuthContext = createContext<AuthContextValue | undefined>(undefined);
 
 const DEMO_PROFILES: Record<UserRole, Profile> = {
-  owner_admin: { id: 'profile-owner-1', role: 'owner_admin', full_name: 'Tomás Turner (Owner)', email: 'owner@toughconcreteconstruction.com', phone: '(555) 123-4567', avatar_url: null, created_at: '2020-01-01T00:00:00Z' },
+  owner_admin: { id: 'profile-owner-1', role: 'owner_admin', full_name: 'Jorge Garcia (Owner)', email: 'owner@toughconcreteconstruction.com', phone: '(205) 207-0235', avatar_url: null, created_at: '2020-01-01T00:00:00Z' },
   office_staff: { id: 'profile-office-1', role: 'office_staff', full_name: 'Renee Ashford', email: 'renee@toughconcreteconstruction.com', phone: '(555) 123-4501', avatar_url: null, created_at: '2021-03-01T00:00:00Z' },
   field_crew: { id: 'profile-crew-1', role: 'field_crew', full_name: 'Danny Ortega', email: 'danny@toughconcreteconstruction.com', phone: '(555) 123-4502', avatar_url: null, created_at: '2021-06-01T00:00:00Z' },
-  customer: { id: 'profile-customer-1', role: 'customer', full_name: 'Michael Reyes', email: 'reyes.family@example.com', phone: '(214) 555-0148', avatar_url: null, created_at: '2023-04-11T14:00:00Z' },
-  contractor: { id: 'profile-contractor-1', role: 'contractor', full_name: 'Roberto Alvarez', email: 'roberto@alvarezgrading.example.com', phone: '(972) 555-0122', avatar_url: null, created_at: '2025-01-15T12:00:00Z' },
+  customer: { id: 'profile-customer-1', role: 'customer', full_name: 'Michael Reyes', email: 'reyes.family@example.com', phone: '(205) 555-0148', avatar_url: null, created_at: '2023-04-11T14:00:00Z' },
+  contractor: { id: 'profile-contractor-1', role: 'contractor', full_name: 'Roberto Alvarez', email: 'roberto@alvarezgrading.example.com', phone: '(205) 555-0122', avatar_url: null, created_at: '2025-01-15T12:00:00Z' },
 };
 
 const DEMO_SESSION_KEY = 'tcc_demo_role';

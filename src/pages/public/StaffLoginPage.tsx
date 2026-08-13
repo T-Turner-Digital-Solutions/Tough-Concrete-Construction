@@ -7,7 +7,7 @@ import { BRAND } from '@/config/brand';
 import type { UserRole } from '@/types/domain';
 
 const DEMO_ROLES: { role: UserRole; label: string }[] = [
-  { role: 'owner_admin', label: 'Preview as Owner / Admin (Tomás Turner)' },
+  { role: 'owner_admin', label: 'Preview as Owner / Admin (Jorge Garcia)' },
   { role: 'office_staff', label: 'Preview as Office Staff (Renee Ashford)' },
   { role: 'field_crew', label: 'Preview as Field Crew (Danny Ortega)' },
 ];
