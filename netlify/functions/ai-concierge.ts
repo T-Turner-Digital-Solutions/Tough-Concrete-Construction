@@ -1,17 +1,17 @@
 import type { Handler } from '@netlify/functions';
 
 /**
- * Optional free-form AI Concierge chat endpoint.
+ * Free-form AI Concierge chat endpoint, powered by ChatGPT (OpenAI).
  *
  * The guided estimate wizard in the app (src/components/ai/AiConciergeChat.tsx)
  * is fully deterministic and works with zero configuration — it reads
  * Tough Concrete's own pricing rules and never invents a number. This
- * function is only used for open-ended natural-language questions typed
- * into the concierge's free-text box, so it hands off to an LLM for
- * conversational quality while still being constrained to the same
- * pricing/service-type context passed in by the client.
+ * function backs the concierge's "Ask a Question" free-text mode, handing
+ * open-ended questions off to ChatGPT for conversational quality while
+ * still constraining it to the same pricing/service-type context passed
+ * in by the client.
  *
- * Requires the ANTHROPIC_API_KEY environment variable (set in Netlify:
+ * Requires the OPENAI_API_KEY environment variable (set in Netlify:
  * Site settings → Environment variables). Never hardcode the key. If it
  * is not set, this function responds with `configured: false` and the
  * frontend falls back to the guided wizard — it never fabricates a reply.
@@ -47,7 +47,7 @@ export const handler: Handler = async (event) => {
     return { statusCode: 405, body: 'Method Not Allowed' };
   }
 
-  const apiKey = process.env.ANTHROPIC_API_KEY;
+  const apiKey = process.env.OPENAI_API_KEY;
   if (!apiKey) {
     return {
       statusCode: 200,
@@ -55,7 +55,7 @@ export const handler: Handler = async (event) => {
       body: JSON.stringify({
         configured: false,
         message:
-          'Free-form AI chat is not configured yet on this deployment (ANTHROPIC_API_KEY is not set). ' +
+          'Free-form AI chat is not configured yet on this deployment (OPENAI_API_KEY is not set). ' +
           'The guided estimate wizard below still works fully — it uses Tough Concrete’s own pricing rules directly.',
       }),
     };
@@ -73,20 +73,25 @@ export const handler: Handler = async (event) => {
   }
 
   try {
-    const response = await fetch('https://api.anthropic.com/v1/messages', {
+    const response = await fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
-        'x-api-key': apiKey,
-        'anthropic-version': '2023-06-01',
+        authorization: `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
-        model: 'claude-sonnet-5',
+        model: 'gpt-4o-mini',
         max_tokens: 600,
-        system: `${SYSTEM_PROMPT}\n\nPricing context (JSON, authoritative — do not deviate from it):\n${JSON.stringify(
-          body.pricingContext ?? {},
-        )}`,
-        messages: [...(body.history ?? []), { role: 'user', content: body.message }],
+        messages: [
+          {
+            role: 'system',
+            content: `${SYSTEM_PROMPT}\n\nPricing context (JSON, authoritative — do not deviate from it):\n${JSON.stringify(
+              body.pricingContext ?? {},
+            )}`,
+          },
+          ...(body.history ?? []),
+          { role: 'user', content: body.message },
+        ],
       }),
     });
 
@@ -98,8 +103,8 @@ export const handler: Handler = async (event) => {
       };
     }
 
-    const data = (await response.json()) as { content?: { type: string; text?: string }[] };
-    const text = data.content?.find((c) => c.type === 'text')?.text ?? '';
+    const data = (await response.json()) as { choices?: { message?: { content?: string } }[] };
+    const text = data.choices?.[0]?.message?.content ?? '';
 
     return {
       statusCode: 200,

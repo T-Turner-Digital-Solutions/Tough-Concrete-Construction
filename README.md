@@ -66,7 +66,7 @@ Copy `.env.example` to `.env.local` for local dev, and set the same keys in **Ne
 |---|---|---|
 | `VITE_SUPABASE_URL` | Browser (Vite build) | For live persistence & auth. Omit to run in demo mode. |
 | `VITE_SUPABASE_ANON_KEY` | Browser (Vite build) | Same as above. This is the public anon key — safe to expose to the browser because every table is protected by Row Level Security (see below). |
-| `ANTHROPIC_API_KEY` | Server only (`netlify/functions/ai-concierge.ts`) | Optional. Enables free-form AI Concierge chat. The guided estimate wizard works fully without it. |
+| `OPENAI_API_KEY` | Server only (`netlify/functions/ai-concierge.ts`) | Optional. Enables free-form AI Concierge chat. The guided estimate wizard works fully without it. |
 | `SUPABASE_SERVICE_ROLE_KEY` | Server only (reserved) | Optional, for future privileged Netlify Functions. **Never** expose this in a `VITE_`-prefixed variable. |
 | `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`, `SQUARE_ACCESS_TOKEN` | Server only (reserved) | Not yet integrated — see "External integrations still needed". |
 
@@ -106,7 +106,7 @@ The project is already connected to Netlify under **T. Turner Digital Solutions*
 - **Functions directory:** `netlify/functions`
 - `netlify.toml` (committed) configures all of the above plus a SPA catch-all redirect (`/*` → `/index.html`, 200) so client-side routes work on refresh/direct-load.
 - Set the environment variables from the table above in the Netlify UI before your first real (non-demo) deploy.
-- No secrets are committed anywhere in this repo — verify with `git grep -i "sk_live\|service_role\|ANTHROPIC_API_KEY *="` before pushing if you ever hardcode a value locally for testing.
+- No secrets are committed anywhere in this repo — verify with `git grep -i "sk_live\|service_role\|OPENAI_API_KEY *="` before pushing if you ever hardcode a value locally for testing.
 
 ---
 
@@ -136,7 +136,7 @@ src/
     customer/      customer portal (ToughTrack, estimates, invoices, enhance/add-ons, AI concierge, ...)
     contractor/    contractor portal (opportunities, bidding, documents)
 netlify/functions/
-  ai-concierge.ts  optional server-side LLM chat (returns configured:false cleanly when ANTHROPIC_API_KEY is unset)
+  ai-concierge.ts  optional server-side LLM chat (returns configured:false cleanly when OPENAI_API_KEY is unset)
 supabase/migrations/0001_init.sql   full schema + RLS policies + seed data (add-on catalog only — no fake customers)
 ```
 
@@ -148,7 +148,7 @@ supabase/migrations/0001_init.sql   full schema + RLS policies + seed data (add-
 |---|---|
 | Supabase (DB/Auth) | Schema + RLS fully written; app runs against it once env vars are set. |
 | Netlify Functions | AI Concierge chat function implemented, cleanly reports "not configured" without a key. |
-| Anthropic API (AI chat) | Optional, server-side only, guarded by `ANTHROPIC_API_KEY`. |
+| OpenAI API (ChatGPT chat) | Optional, server-side only, guarded by `OPENAI_API_KEY`. |
 | Stripe / Square (payments) | **Not connected.** Invoice "Pay Now" actions clearly tell the customer online payment isn't configured yet rather than faking a successful charge. Env var names are reserved in `.env.example` for whoever wires this up next. |
 | SMS notifications | **Not connected.** Notification architecture (`notifications` table, in-app + email intent) supports adding SMS later without a schema change. |
 | Supabase Storage (photos/documents/W-9/insurance uploads) | **Not connected.** Upload UI exists throughout (photos, documents, contractor insurance/license); each clearly states storage isn't configured yet rather than pretending a file was saved. |

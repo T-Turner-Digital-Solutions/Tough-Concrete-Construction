@@ -1,11 +1,28 @@
-import { useState } from 'react';
+import { useState, type FormEvent } from 'react';
 import { Link } from 'react-router-dom';
 import { SERVICE_TYPES } from '@/config/pricing';
 import { BLANK_ANSWERS, evaluateConcierge, PRELIMINARY_ESTIMATE_DISCLAIMER, type ConciergeAnswers } from '@/lib/aiConcierge';
 import { formatCurrency } from '@/lib/format';
+import { BRAND } from '@/config/brand';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Field';
 import { cn } from '@/lib/cn';
+
+interface ChatMessage {
+  role: 'user' | 'assistant';
+  content: string;
+}
+
+const PRICING_CONTEXT = {
+  business: { name: BRAND.legalName, phone: BRAND.phoneDisplay, email: BRAND.email, hours: BRAND.hours, serviceAreas: BRAND.serviceAreas, license: BRAND.license },
+  services: SERVICE_TYPES.map((s) => ({
+    key: s.key,
+    label: s.label,
+    requiresSiteInspection: s.requiresSiteInspection,
+    baseCostPerSqFt: s.baseCostPerSqFt,
+    defaultThicknessInches: s.defaultThicknessInches,
+  })),
+};
 
 type Phase =
   | 'category'
@@ -48,6 +65,11 @@ export function AiConciergeChat({ mode = 'lead', addonContextLabel, onRequestAdd
   ]);
   const [submitted, setSubmitted] = useState(false);
 
+  const [panel, setPanel] = useState<'wizard' | 'chat'>('wizard');
+  const [chatMessages, setChatMessages] = useState<ChatMessage[]>([]);
+  const [chatInput, setChatInput] = useState('');
+  const [chatLoading, setChatLoading] = useState(false);
+
   const phase = PHASES[phaseIndex];
 
   function pushBubble(from: Bubble['from'], text: string) {
@@ -61,10 +83,107 @@ export function AiConciergeChat({ mode = 'lead', addonContextLabel, onRequestAdd
     setPhaseIndex((i) => Math.min(i + 1, PHASES.length - 1));
   }
 
+  async function sendChatMessage(e: FormEvent) {
+    e.preventDefault();
+    const text = chatInput.trim();
+    if (!text || chatLoading) return;
+    setChatInput('');
+    const priorHistory = chatMessages;
+    setChatMessages((h) => [...h, { role: 'user', content: text }]);
+    setChatLoading(true);
+    try {
+      const res = await fetch('/.netlify/functions/ai-concierge', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ message: text, history: priorHistory, pricingContext: PRICING_CONTEXT }),
+      });
+      const data = (await res.json()) as { configured?: boolean; message?: string; error?: string };
+      const reply =
+        data.message ??
+        (data.error
+          ? "Sorry, I couldn't process that — please try again, or use the guided estimate instead."
+          : '');
+      setChatMessages((h) => [...h, { role: 'assistant', content: reply }]);
+    } catch {
+      setChatMessages((h) => [
+        ...h,
+        { role: 'assistant', content: 'Sorry, something went wrong reaching the AI. Please try again in a moment.' },
+      ]);
+    } finally {
+      setChatLoading(false);
+    }
+  }
+
   const outcome = phase === 'result' ? evaluateConcierge(answers) : null;
 
   return (
     <div className="flex h-full flex-col">
+      <div className="mb-3 flex gap-2">
+        <button
+          type="button"
+          onClick={() => setPanel('wizard')}
+          className={cn(
+            'rounded-full px-3.5 py-1.5 text-xs font-semibold transition-colors',
+            panel === 'wizard' ? 'bg-concrete-900 text-white' : 'bg-concrete-100 text-concrete-600 hover:bg-concrete-200',
+          )}
+        >
+          Guided Estimate
+        </button>
+        <button
+          type="button"
+          onClick={() => setPanel('chat')}
+          className={cn(
+            'rounded-full px-3.5 py-1.5 text-xs font-semibold transition-colors',
+            panel === 'chat' ? 'bg-concrete-900 text-white' : 'bg-concrete-100 text-concrete-600 hover:bg-concrete-200',
+          )}
+        >
+          Ask a Question
+        </button>
+      </div>
+
+      {panel === 'chat' ? (
+        <div className="flex flex-1 flex-col overflow-hidden">
+          <div className="flex-1 space-y-3 overflow-y-auto p-1">
+            <div className="flex justify-start">
+              <div className="max-w-[85%] rounded-2xl rounded-tl-sm bg-concrete-100 px-4 py-2.5 text-sm leading-relaxed text-concrete-800">
+                Ask me anything about your project — pricing, timelines, materials, or what to expect. I'll answer
+                using Tough Concrete's own pricing rules whenever I can.
+              </div>
+            </div>
+            {chatMessages.map((m, i) => (
+              <div key={i} className={cn('flex', m.role === 'assistant' ? 'justify-start' : 'justify-end')}>
+                <div
+                  className={cn(
+                    'max-w-[85%] whitespace-pre-wrap rounded-2xl px-4 py-2.5 text-sm leading-relaxed',
+                    m.role === 'assistant' ? 'rounded-tl-sm bg-concrete-100 text-concrete-800' : 'rounded-tr-sm bg-steel-700 text-white',
+                  )}
+                >
+                  {m.content}
+                </div>
+              </div>
+            ))}
+            {chatLoading && (
+              <div className="flex justify-start">
+                <div className="max-w-[85%] rounded-2xl rounded-tl-sm bg-concrete-100 px-4 py-2.5 text-sm text-concrete-500">
+                  Thinking…
+                </div>
+              </div>
+            )}
+          </div>
+          <form onSubmit={sendChatMessage} className="flex gap-2 border-t border-concrete-100 pt-3">
+            <Input
+              placeholder="Type your question…"
+              value={chatInput}
+              onChange={(e) => setChatInput(e.target.value)}
+              disabled={chatLoading}
+            />
+            <Button type="submit" size="sm" disabled={chatLoading || !chatInput.trim()}>
+              Send
+            </Button>
+          </form>
+        </div>
+      ) : (
+        <>
       <div className="flex-1 space-y-3 overflow-y-auto p-1">
         {history.map((b) => (
           <div key={b.id} className={cn('flex', b.from === 'ai' ? 'justify-start' : 'justify-end')}>
@@ -161,6 +280,8 @@ export function AiConciergeChat({ mode = 'lead', addonContextLabel, onRequestAdd
           answers={answers}
         />
       </div>
+        </>
+      )}
     </div>
   );
 }

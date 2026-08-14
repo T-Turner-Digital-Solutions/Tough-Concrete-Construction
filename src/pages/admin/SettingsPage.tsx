@@ -579,9 +579,9 @@ function AiTab() {
             </button>
           </div>
           <p className="text-xs text-concrete-500">
-            The optional server-side free-form chat mode requires an <code>ANTHROPIC_API_KEY</code> environment
-            variable configured in Netlify. It is not configured by default in this environment — without it, the
-            Concierge falls back to the guided/rules-based flow shown above.
+            The optional server-side free-form chat mode is powered by ChatGPT and requires an{' '}
+            <code>OPENAI_API_KEY</code> environment variable configured in Netlify. It is not configured by default
+            in this environment — without it, the Concierge falls back to the guided/rules-based flow shown above.
           </p>
           <div className="flex items-center gap-3">
             <Button onClick={handleSave}>Save Changes (Demo Mode)</Button>
